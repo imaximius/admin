@@ -1,0 +1,50 @@
+services:
+# datatable:
+    araneum_admin.datatable:
+        class: Araneum\AdminBundle\Ali\DatatableBundle\Util\AraneumDatatable
+        arguments:
+            - "@service_container"
+            - "@araneum_admin.datatable.query_bilder"
+
+    araneum_admin.datatable.query_bilder:
+        class: Araneum\AdminBundle\Ali\DatatableBundle\Util\Factory\Query\AraneumDoctrineBuilder
+        arguments:
+            - "@service_container"
+            - "@doctrine.orm.default_entity_manager"
+        tags:
+            - { name: xmlm_datatable_query_bilder }
+
+    araneum_admin.datatable.factory:
+        class: Araneum\AdminBundle\Ali\DatatableBundle\Util\Factory\DatatableFactory
+        arguments:
+            - "@araneum_admin.datatable"
+            - "@doctrine"
+            - "@templating"
+            - "@annotation_reader"
+            - "@security.token_storage"
+
+# action:
+    araneum_admin.action.factory:
+        class: Araneum\AdminBundle\Service\Actions\ActionFactory
+        arguments:
+            - "@araneum_admin.action.builder"
+
+    araneum_admin.action.builder:
+        class: Araneum\AdminBundle\Service\Actions\ActionBuilder
+        arguments:
+            - "@router"
+
+# form:
+    araneum_admin.form_exporter:
+        class: Araneum\AdminBundle\Service\FromExporterService
+        arguments:
+            - "@jms_serializer"
+            - "@form.factory"
+
+# initializer:
+    araneum_admin.initializer:
+        class: Araneum\AdminBundle\Service\AdminInitializerService
+        arguments:
+            - "@araneum_admin.form_exporter"
+            - "@araneum_admin.datatable.factory"
+            - "@araneum_admin.action.factory"
