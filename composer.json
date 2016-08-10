@@ -22,7 +22,7 @@
         "symfony/symfony": "3.1.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.0",
-        "imaximius/datatable": "dev-master",
+        "imaximius/AliDatatableBundle": "dev-master",
         "jms/serializer-bundle": "^1.0"
     },
     "require-dev": {
