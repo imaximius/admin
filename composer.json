@@ -1,10 +1,9 @@
 {
-    "name" : "araneum/admin-bundle",
-    "description" : "Araneum admin bundle",
+    "name" : "liga/admin-bundle",
+    "description" : "LigaAdmin bundle",
     "type" : "symfony-bundle",
     "authors" : [{
-        "name" : "araneum",
-        "email" : "araneum@migfin.com"
+        "name" : "Annonimous"
     }],
     "keywords" : [
         "admin bundle"
@@ -14,7 +13,7 @@
     ],
     "require" : {
         "php": ">=5.3.9",
-        "symfony/symfony": "2.8.*",
+        "symfony/symfony": "3.1.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.0",
         "ali/datatable": "^2.1",
